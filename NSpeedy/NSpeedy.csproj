@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB71AC7A-00FD-4991-BFC9-7145816D44F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NSpeedy</RootNamespace>
+    <AssemblyName>NSpeedy</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Annotate\TableField.cs" />
+    <Compile Include="Annotate\Table.cs" />
+    <Compile Include="ConnectionManager.cs" />
+    <Compile Include="Manager\AbstractDataOperater.cs" />
+    <Compile Include="Manager\Basic\BasicOperater.cs" />
+    <Compile Include="Manager\Basic\MultipleOperation.cs" />
+    <Compile Include="Manager\Basic\SingleOperation.cs" />
+    <Compile Include="Manager\Basic\QueryOperation.cs" />
+    <Compile Include="Manager\MultipleOperater.cs" />
+    <Compile Include="Manager\SingleOperater.cs" />
+    <Compile Include="Manager\QueryOperater.cs" />
+    <Compile Include="Object\Basic\FastSetObj.cs" />
+    <Compile Include="Object\Basic\Behavior\TableRelation.cs" />
+    <Compile Include="Object\Basic\Behavior\TableKey.cs" />
+    <Compile Include="Object\Basic\Behavior\Table.cs" />
+    <Compile Include="Object\Basic\BasicObj.cs" />
+    <Compile Include="Object\Basic\IdentityObj.cs" />
+    <Compile Include="Operate\Abstract\BasicOperate.cs" />
+    <Compile Include="Operate\Basic\interface\BasicExecute.cs" />
+    <Compile Include="Operate\Basic\interface\BasicExecuteMore.cs" />
+    <Compile Include="Operate\Basic\interface\BasicExecuteMoreSql.cs" />
+    <Compile Include="Operate\Basic\interface\BasicExecuteObject.cs" />
+    <Compile Include="Operate\Basic\interface\BasicExecuteSql.cs" />
+    <Compile Include="Operate\Basic\DeleteMore.cs" />
+    <Compile Include="Operate\Basic\Delete.cs" />
+    <Compile Include="Operate\Basic\Execute.cs" />
+    <Compile Include="Operate\Basic\ExecuteMore.cs" />
+    <Compile Include="Operate\Basic\InsertMore.cs" />
+    <Compile Include="Operate\Basic\Insert.cs" />
+    <Compile Include="Operate\Basic\UpdateMore.cs" />
+    <Compile Include="Operate\Basic\Update.cs" />
+    <Compile Include="Operate\ExecuteBatch.cs" />
+    <Compile Include="Operate\ExecuteBatchSql.cs" />
+    <Compile Include="Operate\ExecuteSingle.cs" />
+    <Compile Include="Operate\Delete\DeleteObj.cs" />
+    <Compile Include="Operate\ExecuteSingleSql.cs" />
+    <Compile Include="Operate\Execute\ExecuteMoreSql.cs" />
+    <Compile Include="Operate\Execute\ExecuteSql.cs" />
+    <Compile Include="Operate\Insert\InsertSameObjs.cs" />
+    <Compile Include="Operate\Multi\CommonProcessingBatch.cs" />
+    <Compile Include="Operate\Update\UpdateObj.cs" />
+    <Compile Include="Operate\Insert\InsertObj.cs" />
+    <Compile Include="Operate\Sql\CreateDeleteSql.cs" />
+    <Compile Include="Operate\Sql\CreateUpdateSql.cs" />
+    <Compile Include="Operate\Sql\CreateInsertSql.cs" />
+    <Compile Include="Operate\Sql\CreateSql.cs" />
+    <Compile Include="Operate\ProcessingBatch.cs" />
+    <Compile Include="Operate\Update\UpdateSameObjs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query\Object\More\PreparedSelectMore.cs" />
+    <Compile Include="Query\Object\Value\PreparedSelectValue.cs" />
+    <Compile Include="Query\QueryDataObject.cs" />
+    <Compile Include="Query\QueryMore.cs" />
+    <Compile Include="Query\QueryValue.cs" />
+    <Compile Include="Query\QuerySingle.cs" />
+    <Compile Include="Query\QueryData.cs" />
+    <Compile Include="Query\Execute\PreparedExecute.cs" />
+    <Compile Include="Query\Execute\ExecuteQuery.cs" />
+    <Compile Include="Query\Execute\CallableExecute.cs" />
+    <Compile Include="Query\Object\SetValue\ReflectObject.cs" />
+    <Compile Include="Query\Object\SetValue\DataToObject.cs" />
+    <Compile Include="Query\Object\Single\PreparedSelectSingle.cs" />
+    <Compile Include="Test\Record.cs" />
+    <Compile Include="Test\Entity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
