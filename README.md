@@ -1,9 +1,72 @@
-NSpeedy是一个轻量级ORM框架
-可以自己编写复杂的SQL语句进行增删改查
-暂时仅支持mssql(Sql Server)数据库
-NSpeedy技术QQ群:544863170
+#NSpeedy
+**是一个轻量级ORM框架**
+**可以自己编写复杂的SQL语句进行增删改查**
+**暂时仅支持mssql(Sql Server)数据库**
+###NSpeedy技术QQ群:544863170
 
-
+**所有接口：**
+```C#
+Operate:
+    //新增 返回受影响行数
+    int Insert<T>(T obj) where T : IdentityObj;
+    //批量新增 返回受影响行数
+    int InsertBatchSame<T>(IList<T> list) where T : IdentityObj;
+    //修改 返回受影响行数
+    int Update<T>(T obj) where T : IdentityObj;
+    //批量修改 返回受影响行数
+    int UpdateBatchSame<T>(IList<T> list) where T : IdentityObj;
+    //删除 返回受影响行数
+    int Delete<T>(T obj) where T : IdentityObj;
+    //批量删除 返回受影响行数
+    int DeleteBatchSame<T>(IList<T> list) where T : IdentityObj;
+    //执行Sql 返回受影响行数
+    int ExecuteSql(string sql);
+    //批量执行Sql 可返回受影响行数也可返回ID 具体看Sql定义
+    int ExecuteMoreSql(IList<string> list);
+Query:
+    //查询主键一致的指定泛型的对象
+    T SelectRelyOnKey<T>(string id) where T : BasicObj;
+    //查询指定泛型的对象
+    T SelectOne<T>(string sql) where T : BasicObj;
+    //查询指定泛型的对象 还是主键
+    T SelectOne<T>(T t) where T : IdentityObj;
+    //查询一行一列 一般用作查询行数
+    T SelectValue<T>(string sql);
+    //查询以JSON返回
+    string SelectWithJSON(string sql);
+    //查询以DataSet返回
+    DataSet SelectWithDataSet(string sql, params string[] tableName);
+    //查询指定泛型的列表
+    IList<T> Select<T>(string sql) where T : BasicObj;
+    //查询指定泛型的列表 实际用处不大 只在使用动态程序集时用到
+    IList<T> Select<T>(string sql, object obj) where T : BasicObj;
+    //查询指定泛型的动态列表
+    IList<dynamic> SelectWithDynamic<T>(string sql) where T : BasicObj;
+    //查询以动态列表返回
+    IList<dynamic> SelectWithDynamic(string sql);
+    //查询一列多行
+    IList<T> SelectValueList<T>(string sql);
+    //查询一行多列
+    IDictionary<string, object> SelectOneData(string sql);
+Multi: //事物队列
+    //给队列中添加一条新增任务
+    void AddInsert<T>(T obj) where T : IdentityObj;
+    //给队列中添加一条修改任务
+    void AddUpdate<T>(T obj) where T : IdentityObj;
+    //给队列中添加一条删除任务
+    void AddDelete<T>(T obj) where T : IdentityObj;
+    //给队列中添加一条执行Sql任务
+    void AddExecutesql(string sql);
+    //给队列中添加一条批量新增任务
+    void AddInsertBatchSame<T>(IList<T> list) where T : IdentityObj;
+    //给队列中添加一条批量修改任务
+    void AddUpdateBatchSame<T>(IList<T> list) where T : IdentityObj;
+    //给队列中添加一条批量删除任务
+    void AddDeleteBatchSame<T>(IList<T> obj) where T : IdentityObj;
+    //提交队列 返回受影响总行数 顺序执行
+    int Commit();
+```
+***
 **如何使用：**
 ***
 
@@ -289,7 +352,6 @@ namespace Example.Entity
 ```
 
 **数据库连接配置 在`Example.DataSource`中：**
-* dbType中配置sqlserver, mysql, oracle来支持不同的数据库
 
 ***
 
