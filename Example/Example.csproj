@@ -47,6 +47,9 @@
     <Compile Include="DataSource\DataManagerCreater.cs" />
     <Compile Include="DataSource\DBConnectionSingletion.cs" />
     <Compile Include="DataSource\ObjectPool.cs" />
+    <Compile Include="Entity\TB_Class.cs" />
+    <Compile Include="Entity\TB_Student.cs" />
+    <Compile Include="Entity\TB_Teacher.cs" />
     <Compile Include="Run.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
