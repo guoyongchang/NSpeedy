@@ -6,7 +6,6 @@ NSpeedy
 
 **暂时仅支持mssql(Sql Server)数据库**
 
-NSpeedy技术QQ群:544863170
 
 **所有接口：**
 ```C#
